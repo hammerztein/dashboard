@@ -6,6 +6,14 @@
 	--txt-gray-700: #374151;
 	--border-radius-sm: 0.25rem;
 	--border-radius-m: 0.5rem;
+	--padding-s: 0.5rem;
+	--padding-m: 0.75rem;
+	--padding-l: 1rem;
+	--padding-xl: 1.5rem;
+	--margin-s: 0.5rem;
+	--margin-m: 0.75rem;
+	--margin-l: 1rem;
+	--margin-xl: 1.5rem;
 }
 
 /* Reset */
@@ -57,9 +65,9 @@ body {
 	background-color: var(--bg-slate-100);
 	position: sticky;
 	top: 1rem;
-	margin: 1rem;
+	margin: var(--margin-l);
 	box-shadow: 0 3px 8px #33333380;
-	border-radius: 0.25rem;
+	border-radius: var(--border-radius-sm);
 }
 
 .sidebar {
