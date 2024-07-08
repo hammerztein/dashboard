@@ -176,6 +176,10 @@ body {
 	background-color: var(--bg-slate-300);
 }
 
+.username {
+	font-weight: 700;
+}
+
 .btn {
 	height: 40px;
 	width: 40px;
