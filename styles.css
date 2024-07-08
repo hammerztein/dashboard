@@ -19,6 +19,11 @@
 	--transition: all 0.3s ease-in-out;
 }
 
+@font-face {
+	font-family: Montserrat;
+	src: url("./assets/font/Montserrat-VariableFont_wght.ttf") format("truetype");
+}
+
 /* Reset */
 *,
 *::before,
@@ -68,6 +73,7 @@ body {
 	"aside main"
 	;
 	color: var(--txt-gray-700);
+	font-family: Montserrat, sans-serif;
 }
 
 /* Header */
