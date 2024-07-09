@@ -1,6 +1,7 @@
 /* Custom variables */
 :root {
-	--bg-slate-100: #f8fafc;
+	--bg-slate-50: #f8fafc;
+	--bg-slate-100: #f0f0f0;
 	--bg-slate-300: #cbd5e1;
 	--bg-slate-500: #64748b;
 	--txt-gray-100: #f5f5f5;
@@ -79,7 +80,7 @@ body {
 /* Header */
 .header {
 	grid-area: header;
-	background-color: var(--bg-slate-100);
+	background-color: var(--bg-slate-50);
 	position: sticky;
 	top: 1rem;
 	margin: var(--spacing-l);
@@ -124,7 +125,7 @@ body {
 
 #search-bar {
 	width: 300px;
-	background-color: var(--bg-slate-300);
+	background-color: var(--bg-slate-100);
 	border: 1px solid transparent;
 	position: relative;
 	border-radius: 2rem;
@@ -140,8 +141,7 @@ body {
 }
 
 #search-bar:focus-within {
-	background-color: var(--bg-slate-100);
-	border: 1px solid var(--bg-slate-300);
+	background-color: var(--bg-slate-300);
 }
 
 #search-bar img {
@@ -172,8 +172,7 @@ body {
 	height: 48px;
 	width: 48px;
 	border-radius: 50%;
-	border: 1px solid var(--bg-slate-500);
-	background-color: var(--bg-slate-300);
+	background-color: var(--bg-slate-500);
 }
 
 .username {
@@ -184,21 +183,21 @@ body {
 	height: 40px;
 	width: 40px;
 	padding: var(--spacing-s);
-	background-color: var(--bg-slate-300);
+	background-color: var(--bg-slate-100);
 	border-radius: 2rem;
-	border: 1px solid transparent;
+	border: 2px solid transparent;
 	transition: var(--transition);
 }
 
 .btn:hover {
-	border: 1px solid var(--bg-slate-300);
+	border: 2px solid var(--bg-slate-500);
 	background-color: transparent;
-	transform: rotate(360deg);
+	transform: scale(1.05);
 }
 
 .sidebar {
 	grid-area: aside;
-	background-color: var(--bg-slate-100);
+	background-color: var(--bg-slate-50);
 }
 
 .main {
