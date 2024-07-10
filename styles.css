@@ -4,6 +4,8 @@
 	--bg-slate-100: #f0f0f0;
 	--bg-slate-300: #cbd5e1;
 	--bg-slate-500: #64748b;
+	--success-400: #4ade80;
+	--success-700: #15803d;
 	--txt-gray-100: #f5f5f5;
 	--txt-gray-500: #6b7280;
 	--txt-gray-700: #374151;
@@ -88,6 +90,7 @@ body {
 	border-radius: 0.5rem;
 	display: grid;
 	grid-template-columns: 1fr 2fr;
+	z-index: 10;
 }
 
 .header .brand {
@@ -275,11 +278,103 @@ body {
 	border: 1px solid var(--bg-slate-300);
 }
 
+/* Main content */
 .main {
 	grid-area: main;
-	padding: var(--spacing-xl);
+	padding: var(--spacing-l);
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	gap: var(--spacing-l);
+}
+
+.main .main-section {
+	display: grid;
+	grid-template-rows: minmax(120px, 1fr) 2fr 2fr;
+}
+
+.main-section .kpi {
+	display: grid;
+	gap: var(--spacing-l);
+	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+}
+
+.kpi .card {
+	background-color: var(--bg-slate-50);
+	border-radius: 0.5rem;
+	display: flex;
+	/* align-items: center; */
+	justify-content: space-between;
+	padding: var(--spacing-l);
+	flex-wrap: wrap;
+}
+
+/* Card direct children equally divided */
+.kpi .card > * {
+	flex: 1;
+}
+
+.card h4 {
+	font-size: var(--font-default);
+}
+
+.card .graph small {
+	display: inline-block;
+	margin-bottom: var(--spacing-m);
+}
+
+.card .numbers {
+	margin-bottom: auto;
+	text-align: right;
+}
+
+.card .numbers  ul li:not(:last-child) {
+	margin-bottom: var(--spacing-m);
+}
+
+.card .circle {
+	position: relative;
+	height: 85px;
+	width: 85px;
+	border-radius: 50%;
+	background-color: var(--bg-slate-300);
+	box-shadow: inset 2px 2px 6px #33333320,
+	inset -2px -2px 6px #33333320;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.circle .inner {
+	height: 80%;
+	width: 80%;
+	border-radius: 50%;
+	background-color: var(--bg-slate-100);
+	z-index: 1;
+}
+
+.circle .fill {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	background: conic-gradient(var(--success-400) 80%, transparent 0);
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.circle .fill::after {
+	content: attr(data-value);
+	color: var(--txt-gray-700);
+	font-weight: 500;
+	z-index: 2;
+}
+
+
+/* .main > * {
+	border: 1px solid;
 }
 
 body > * {
 	border: 1px solid;
-}
+} */
