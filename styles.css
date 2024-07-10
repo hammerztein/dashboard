@@ -289,13 +289,15 @@ body {
 
 .main .main-section {
 	display: grid;
-	grid-template-rows: minmax(120px, 1fr) 2fr 2fr;
+	grid-template-rows: 1fr 1fr 2fr;
+	gap: var(--spacing-l);
 }
 
+/* KPI section */
 .main-section .kpi {
 	display: grid;
 	gap: var(--spacing-l);
-	grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
 }
 
 .kpi .card {
@@ -370,6 +372,13 @@ body {
 	z-index: 2;
 }
 
+/* Production section */
+.main-section .production {
+	background-color: var(--bg-slate-50);
+	border-radius: 0.5rem;
+	padding: var(--spacing-l);
+	grid-row: 2 / 3;
+}
 
 /* .main > * {
 	border: 1px solid;
