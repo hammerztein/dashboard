@@ -51,6 +51,7 @@ button {
 	background: none;
 	border: none;
 	cursor: pointer;
+	font: inherit;
 }
 
 li {
@@ -293,10 +294,14 @@ body {
 	gap: var(--spacing-l);
 }
 
-.main .main-section {
+.main .main-section,
+.main .side-section {
 	display: grid;
-	grid-template-rows: auto minmax(auto, 350px) minmax(350px, auto);
 	gap: var(--spacing-l);
+}
+
+.main .main-section {
+	grid-template-rows: minmax(auto, min-content) minmax(auto, 350px) minmax(350px, auto);
 }
 
 /* KPI section */
@@ -373,25 +378,29 @@ body {
 }
 
 /* Production section */
-.main-section .production,
-.main-section .chart {
+.main > section > section:not(.kpi) {
 	background-color: var(--bg-slate-50);
 	border-radius: 0.5rem;
 	padding: var(--spacing-xl);
 	display: grid;
+}
+
+.production,
+.chart {
 	grid-template-rows: auto 1fr;
 }
 
-.production header,
-.chart header {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
+.main section > header {
 	margin-bottom: var(--spacing-m);
 }
 
-.production header h3,
-.chart header h3 {
+.production header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.main header h3 {
 	font-size: var(--font-m);
 }
 
@@ -456,4 +465,77 @@ body {
 /* Production chart */
 .chart .chart-wrapper {
 	margin: 0 auto;
+}
+
+/* Side section */
+.main .side-section {
+	grid-template-rows: auto auto auto;
+}
+
+.schedule,
+.news,
+.online-list {
+	grid-template-rows: auto 2fr;
+}
+
+/* Schedule & News */
+.side-section .list-item  {
+	font-size: var(--font-default);
+	margin-bottom: var(--spacing-m);
+}
+
+.side-section > section button {
+	margin-top: var(--spacing-m);
+	padding: var(--spacing-s) 0;
+	font-size: var(--font-default);
+	font-weight: bold;
+	border-radius: 0.5rem;
+	border: 1px solid var(--primary-400);
+	transition: var(--transition);
+}
+
+.side-section > section button:hover {
+	background-color: var(--primary-400);
+	color: var(--txt-gray-100)
+}
+
+/* Online list */
+.online-users li {
+	display: flex;
+	align-items: center;
+	gap: var(--spacing-m);
+	position: relative;
+}
+
+.online-users li:not(:last-child) {
+	margin-bottom: var(--spacing-m);
+}
+
+.online-users li p {
+	font-size: var(--font-default);
+	display: flex;
+	flex-direction: column;
+	font-weight: 600;
+}
+
+.online-users small {
+	color: var(--txt-gray-500);
+	font-weight: 400;
+}
+
+.online-users img {
+	max-height: 48px;
+	max-width: 48px;
+	background-color: var(--bg-slate-500);
+	border-radius: 50%;
+}
+
+.status {
+	position: absolute;
+	bottom: -2px;
+	left: -3px;
+	border-radius: 50%;
+	height: 16px;
+	width: 16px;
+	background-color: var(--success-400);
 }
