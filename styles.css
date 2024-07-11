@@ -52,7 +52,8 @@ li {
 	list-style: none;
 }
 
-input {
+input,
+select {
 	color: inherit;
 	font: inherit;
 }
@@ -370,13 +371,75 @@ body {
 .main-section .production {
 	background-color: var(--bg-slate-50);
 	border-radius: 0.5rem;
-	padding: var(--spacing-l);
+	padding: var(--spacing-xl);
+	display: grid;
+	grid-template-rows: auto 1fr;
 }
 
-/* .main > * {
-	border: 1px solid;
+.production header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin-bottom: var(--spacing-m);
 }
 
-body > * {
-	border: 1px solid;
-} */
+.production header h3 {
+	font-size: var(--font-m);
+}
+
+.production header select,
+.production header label {
+	font-weight: 600;
+}
+
+.production header select {
+	font-size: var(--font-default);
+	padding: 0.25rem;
+	border-radius: 0.5rem;
+	border: 1px solid var(--bg-slate-300);
+}
+
+.production-table {
+	width: 100%;
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.production-table thead svg {
+	height: 22px;
+	width: 22px;
+	vertical-align: -5px;
+	cursor: pointer;
+	border-radius: 0.25rem;
+	transition: var(--transition);
+}
+
+.production-table thead svg:hover {
+	background-color: var(--bg-slate-300);
+	transform: rotate(180deg);
+}
+
+.production-table tbody tr td:first-child,
+.production-table thead tr th:first-child {
+	text-align: left;
+}
+
+.production-table tbody tr td:last-child,
+.production-table thead tr th:last-child {
+	text-align: right;
+}
+
+.production-table th,
+.production-table td {
+	padding: var(--spacing-m);
+	font-size: var(--font-default);
+}
+
+.production-table tr {
+	border-bottom: 1px solid var(--bg-slate-100);
+	transition: var(--transition);
+}
+
+.production-table tbody tr:hover {
+	background-color: var(--bg-slate-300);
+}
