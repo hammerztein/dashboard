@@ -479,6 +479,11 @@ body {
 }
 
 /* Schedule & News */
+.side-section header h3 {
+	border-bottom: 1px solid var(--bg-slate-300);
+	padding-bottom: var(--spacing-s);
+}
+
 .side-section .list-item  {
 	font-size: var(--font-default);
 	margin-bottom: var(--spacing-m);
@@ -537,5 +542,20 @@ body {
 	border-radius: 50%;
 	height: 16px;
 	width: 16px;
+}
+
+/* Status colors */
+.status.online {
 	background-color: var(--success-400);
+	border: 1px solid var(--success-700);
+}
+
+.status.away {
+	background-color: var(--accent-400);
+	border: 1px solid var(--accent-700);
+}
+
+.status.offline {
+	background-color: var(--alert-400);
+	border: 1px solid var(--alert-700);
 }
