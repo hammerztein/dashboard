@@ -1,22 +1,75 @@
 // DOM variables
 const navbar = document.querySelector('.navbar ul');
+const circleGraphs = document.querySelectorAll('.graph');
 
 // Functions
 function addActiveClass(link) {
 	link.classList.add('active');
 }
 
-function removeActiveClass() {
+function removeActiveClasses() {
 	const links = navbar.querySelectorAll('li a');
 	links.forEach((link) => link.classList.remove('active'));
 }
 
+function getCircleValues(circle) {
+	const numberContainer = circle.nextElementSibling;
+	const targetValue = numberContainer
+		.querySelector('ul li:nth-of-type(1) p')
+		.textContent.replace(/\D/g, '');
+	const resultValue = numberContainer
+		.querySelector('ul li:nth-of-type(2) p')
+		.textContent.replace(/\D/g, '');
+	const offsetValue = numberContainer
+		.querySelector('ul li:nth-of-type(3) p')
+		.textContent.replace(/\D/g, '');
+	const percentage = Math.floor((resultValue / targetValue) * 100);
+	const color = selectFillColor(percentage);
+
+	return {
+		percentage,
+		color,
+	};
+}
+
+function selectFillColor(percentage) {
+	if (+percentage <= 25) {
+		return '#f87171';
+	}
+	if (+percentage <= 85) {
+		return '#fbbf24';
+	}
+	if (+percentage <= 100) {
+		return '#4ade80';
+	}
+}
+
+function fillCircle(container) {
+	const circle = container.querySelector('.circle .fill');
+	const values = getCircleValues(container);
+	let fillCounter = 0;
+	const animateFill = setInterval(() => {
+		fillCounter++;
+		circle.style.background = `conic-gradient(${values.color} ${fillCounter}%, transparent 0)`;
+		circle.dataset.value = fillCounter;
+		console.log('working');
+		if (fillCounter >= values.percentage) {
+			clearInterval(animateFill);
+		}
+	}, 20);
+}
+
 // Event listeners
+document.addEventListener('DOMContentLoaded', () => {
+	circleGraphs.forEach((circle) => fillCircle(circle));
+});
+
 navbar.addEventListener('click', (e) => {
-	const link = e.target;
+	// Find closest ancestor link tag
+	const link = e.target.closest('a');
 	// Match all, but the logout link
 	if (link.matches('li a:not(#logout)')) {
-		removeActiveClass();
+		removeActiveClasses();
 		addActiveClass(link);
 	}
 });
