@@ -35,7 +35,6 @@ function getCircleValues(circle) {
 		.textContent.replace(/\D/g, '');
 	const percentage = Math.floor((resultValue / targetValue) * 100);
 	const color = selectFillColor(percentage);
-
 	return {
 		percentage,
 		color,
@@ -43,13 +42,13 @@ function getCircleValues(circle) {
 }
 
 function selectFillColor(percentage) {
-	if (+percentage <= 25) {
+	if (percentage <= 25) {
 		return '#f87171';
 	}
-	if (+percentage <= 85) {
+	if (percentage <= 85) {
 		return '#fbbf24';
 	}
-	if (+percentage <= 100) {
+	if (percentage <= 100) {
 		return '#4ade80';
 	}
 }
