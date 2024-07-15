@@ -1,6 +1,8 @@
 // DOM variables
 const navbar = document.querySelector('.navbar ul');
 const circleGraphs = document.querySelectorAll('.graph');
+const searchForm = document.querySelector('#search-bar');
+const searchbar = searchForm.querySelector('#search');
 
 // Functions
 function addActiveClass(link) {
@@ -10,6 +12,14 @@ function addActiveClass(link) {
 function removeActiveClasses() {
 	const links = navbar.querySelectorAll('li a');
 	links.forEach((link) => link.classList.remove('active'));
+}
+
+function handleLinkActivation(event) {
+	// Find closest ancestor link tag
+	const link = event.target.closest('a');
+	// Match all, but the logout link
+	removeActiveClasses();
+	addActiveClass(link);
 }
 
 function getCircleValues(circle) {
@@ -52,11 +62,22 @@ function fillCircle(container) {
 		fillCounter++;
 		circle.style.background = `conic-gradient(${values.color} ${fillCounter}%, transparent 0)`;
 		circle.dataset.value = fillCounter;
-		console.log('working');
 		if (fillCounter >= values.percentage) {
 			clearInterval(animateFill);
 		}
 	}, 20);
+}
+
+function openSearchbar(event) {
+	event.currentTarget.classList.add('open');
+}
+
+function closeEmptySearchbar(event) {
+	const searchbar = event.currentTarget;
+
+	if (!searchbar.value) {
+		searchbar.parentElement.classList.remove('open');
+	}
 }
 
 // Event listeners
@@ -64,10 +85,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	circleGraphs.forEach((circle) => fillCircle(circle));
 });
 
-navbar.addEventListener('click', (e) => {
-	// Find closest ancestor link tag
-	const link = e.target.closest('a');
-	// Match all, but the logout link
-	removeActiveClasses();
-	addActiveClass(link);
-});
+navbar.addEventListener('click', handleLinkActivation);
+
+searchForm.addEventListener('click', openSearchbar);
+
+searchbar.addEventListener('blur', closeEmptySearchbar);
