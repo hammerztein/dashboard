@@ -70,6 +70,7 @@ function fillCircle(container) {
 
 function openSearchbar(event) {
 	event.currentTarget.classList.add('open');
+	searchbar.focus();
 }
 
 function closeEmptySearchbar(event) {
