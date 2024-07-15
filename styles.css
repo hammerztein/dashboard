@@ -139,10 +139,22 @@ body {
 	padding: var(--spacing-s) var(--spacing-m);
 	gap: var(--spacing-s);
 	transition: var(--transition);
+	width: 50px;
+	overflow: hidden;
+	cursor: pointer;
 }
 
 #search {
 	width: max(14px, 100%);
+	display: none;
+}
+
+#search-bar.open {
+	width: 300px;
+}
+
+#search-bar.open #search {
+	display: block;
 }
 
 #search-bar:focus-within {
@@ -153,6 +165,12 @@ body {
 	height: 24px;
 	width: 24px;
 	opacity: 0.5;
+	transition: var(--transition);
+}
+
+#search-bar img:hover {
+	transform: scale(1.02);
+	opacity: 1;
 }
 
 /* Visually hidden label */
@@ -250,6 +268,15 @@ body {
 	padding: var(--spacing-m);
 	border-radius: 0.5rem;
 	transition: var(--transition);
+}
+
+.navbar .badge-alert {
+	font-size: var(--font-s);
+	padding: 0.25rem 1rem;
+	border-radius: 1rem;
+	color: var(--txt-gray-100);
+	background-color: var(--alert-400);
+	margin-inline-start: auto;
 }
 
 /* Fill SVG color with current color of the anchor */
@@ -489,7 +516,7 @@ body {
 	margin-bottom: var(--spacing-m);
 }
 
-.side-section > section button {
+.side-section > section:not(.online-list) button {
 	margin-top: var(--spacing-m);
 	padding: var(--spacing-s) 0;
 	font-size: var(--font-default);
@@ -499,7 +526,7 @@ body {
 	transition: var(--transition);
 }
 
-.side-section > section button:hover {
+.side-section > section:not(.online-list) button:hover {
 	background-color: var(--primary-400);
 	color: var(--txt-gray-100)
 }
@@ -521,6 +548,7 @@ body {
 	display: flex;
 	flex-direction: column;
 	font-weight: 600;
+	flex: 1
 }
 
 .online-users small {
