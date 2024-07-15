@@ -68,8 +68,6 @@ navbar.addEventListener('click', (e) => {
 	// Find closest ancestor link tag
 	const link = e.target.closest('a');
 	// Match all, but the logout link
-	if (link.matches('li a:not(#logout)')) {
-		removeActiveClasses();
-		addActiveClass(link);
-	}
+	removeActiveClasses();
+	addActiveClass(link);
 });
