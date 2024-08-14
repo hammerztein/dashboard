@@ -12,7 +12,7 @@ Create an admin dashboard using CSS grid.
 
 ## Links
 
-[Live app preview](https://hammerztein.github.io/odin-dashboard/)
+[Live app preview](https://hammerztein.github.io/dashboard/)
 
 ## Things I Used
 
